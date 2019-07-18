@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script type="text/javascript" src="js/calculadora.js"></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+  <form name="calculator">
+
+    <input id="display" type="textfield" name="visor" value="0">
+    <br>
+    <input type="button" value="1" onClick="mostrarNumero(1)">
+    <input type="button" value="2" onClick="mostrarNumero(2)">
+    <input type="button" value="3" onClick="mostrarNumero(3)">
+    <input type="button" value="+" onClick="sumar()">
+    <br>
+    <input type="button" value="4" onClick="mostrarNumero(4)">
+    <input type="button" value="5" onClick="mostrarNumero(5)">
+    <input type="button" value="6" onClick="mostrarNumero(6)">
+    <input type="button" value="-" onClick="restar()">
+    <br>
+    <input type="button" value="7" onClick="mostrarNumero(7)">
+    <input type="button" value="8" onClick="mostrarNumero(8)">
+    <input type="button" value="9" onClick="mostrarNumero(9)">
+    <input type="button" value="*" onClick="multiplicar()">
+    <br>
+    <input type="button" value="0" onClick="mostrarNumero(0)">
+    <input type="reset" value="c" onClick="reset()">
+    <input type="button" value="/" onClick="dividir()">
+    </form>
+</body>
+</html>
