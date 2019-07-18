@@ -2,18 +2,22 @@ function mostrarNumero(numero){
 
     display = document.getElementById("display");
     if (display.value =='0'){
+        operacion = 0
         numeroAnterior=0
         display.value=numero
-    } else {
+    } else if(operacion==0){
         numeroAnterior = display.value
         display.value += numero
-        
+        //display.value = new Number(display.value + numero)
+    }else{
+        numeroAnterior = display.value
     }
     //display.value = new Number(display.value + numero)
 }
 
 function sumar(){
     display.value = eval(display.value)+eval(numeroAnterior);
+    operacion = 1
 }
 
 function restar(){

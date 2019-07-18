@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script type="text/javascript" src="js/calculadora.js"></script>
+    <script type="text/javascript" src="js/calculadora_chapucera.js"></script>
     <meta charset="UTF-8">
 </head>
 
@@ -10,24 +10,25 @@
 
     <input id="display" type="textfield" name="visor" value="0">
     <br>
-    <input type="button" value="1" onClick="mostrarNumero(1)">
-    <input type="button" value="2" onClick="mostrarNumero(2)">
-    <input type="button" value="3" onClick="mostrarNumero(3)">
-    <input type="button" value="+" onClick="sumar()">
+    <input type="button" value="1" onclick="mostrarNumero(1)">
+    <input type="button" value="2" onclick="mostrarNumero(2)">
+    <input type="button" value="3" onclick="mostrarNumero(3)">
+    <input type="button" value="+" onclick="sumar()">
     <br>
-    <input type="button" value="4" onClick="mostrarNumero(4)">
-    <input type="button" value="5" onClick="mostrarNumero(5)">
-    <input type="button" value="6" onClick="mostrarNumero(6)">
-    <input type="button" value="-" onClick="restar()">
+    <input type="button" value="4" onclick="mostrarNumero(4)">
+    <input type="button" value="5" onclick="mostrarNumero(5)">
+    <input type="button" value="6" onclick="mostrarNumero(6)">
+    <input type="button" value="-" onclick="restar()">
     <br>
-    <input type="button" value="7" onClick="mostrarNumero(7)">
-    <input type="button" value="8" onClick="mostrarNumero(8)">
-    <input type="button" value="9" onClick="mostrarNumero(9)">
-    <input type="button" value="*" onClick="multiplicar()">
+    <input type="button" value="7" onclick="mostrarNumero(7)">
+    <input type="button" value="8" onclick="mostrarNumero(8)">
+    <input type="button" value="9" onclick="mostrarNumero(9)">
+    <input type="button" value="*" onclick="multiplicar()">
     <br>
-    <input type="button" value="0" onClick="mostrarNumero(0)">
-    <input type="reset" value="c" onClick="reset()">
-    <input type="button" value="/" onClick="dividir()">
+    <input type="button" value="0" onclick="mostrarNumero(0)">
+    <input type="button" value="=" onclick="calcular(0)">
+    <input type="reset" value="c" onclick="reset()">
+    <input type="button" value="/" onclick="dividir()">
     </form>
 </body>
 </html>
