@@ -277,26 +277,116 @@ console.log('Series vistas: ', seriesVistas(series))
 const seriesQueHeVisto = series.filter((s)=>{return (s.episodiosPorVer()===0)}).map((t)=> t.titulo) //{return (s.episodios==s.episodiosVistos)}).map((t)=> t.titulo)  
 console.log('Series vistas: ', seriesQueHeVisto)
 
-// --------------------
-// ----- Promesas -----
-// --------------------
+// ---------------------
+// ----- Callbacks -----
+// ---------------------
 
 console.log(1)
 setTimeout(()=>{console.log(2)}, 100) // muestra en 100 ms, si ponemos 0 ms sera lo ultimo que se ejecute, entonces el resultado sera igualmente 132
 console.log(3)
 
+// --Sin callback--
 function getGenerosDeLasSeries(){
 
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://ejemplos-dc1c1.firebaseio.com/generos')
+    xhr.open('GET', 'https://ejemplos-dc1c1.firebaseio.com/generos.json')
     xhr.addEventListener('readystatechange',()=>{
         console.log(xhr.status)
         if(xhr.status === 200 && xhr.readyState===4){
-            let resp = xhr.responseText
+            let resp = JSON.parse(xhr.responseText)
             console.log(resp)
 
+            // 1) automaticamente
+            //const generos =['sci-fi', 'action', 'Ficción']
+            //let generosQueQuiero = elegirGenero(generos)
+            // 2) Pidiendo un genero 
+           //let generosQueQuiero = prompt('Qué genero quieres?: ')
+            //getSeriesDeGenero(generosQueQuiero)
+            // 3) Pidiendo varios generos
+            // let generosQueQuiero = prompt(`Qué generos quieres?: ${generos}`)
+            // for (let genero in generosQueQuiero){ // NO VA
+            //    getSeriesDeGenero(genero)
+            // }
         }
     })
 
     xhr.send();
 }
+
+function getSeriesDeGenero(genero){
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET',`https://ejemplos-dc1c1.firebaseio.com/peliculas/${genero}.json`) // OJO! para que nos coja el parametro genero cambiamos las comillas a ``!
+
+    xhr.addEventListener('readystatechange', ()=>{
+        if(xhr.status == 200 && xhr.readyState===4){
+            const datos = JSON.parse(xhr.responseText) // Convierte los datos de string a un objeto para poder verlo
+            console.log(datos)
+        }
+    })
+
+    xhr.send();
+}
+
+function elegirGenero(generos){
+    return generos[0]
+}
+
+
+
+// --Con callback--
+function getGenerosPeliculas(callback) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://ejemplos-dc1c1.firebaseio.com/generos.json');
+  
+    xhr.addEventListener('readystatechange', () => {
+      console.log(xhr.status)
+      if (xhr.status === 200 && xhr.readyState === 4) {
+        const generos = ['sci-fi', 'action', 'Ficción']
+        callback(generos);
+      }
+    })
+  
+    xhr.send();
+  }
+  
+  function getPeliculasDeGenero(genero) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://ejemplos-dc1c1.firebaseio.com/peliculas/${genero}.json`);
+  
+    xhr.addEventListener('readystatechange', () => {
+      if (xhr.status === 200 && xhr.readyState === 4) {
+        const datos = JSON.parse(xhr.responseText);
+        console.log(datos['-Lh0Z-ubcY_-5LvquB7H'])
+      }
+    })
+  
+    xhr.send();
+  }
+  
+function getArrayFromObject(obj){
+   const valores = []
+    for (let key in obj){
+        let val = obj[key];
+        valores.push(val)
+    }
+
+    // Manera corta
+   // const valores = Object.values(obj)
+    
+   return valores
+}
+
+  function elegirGenero(generos) {
+    //return generos[0];
+    let genero = prompt(`Elige un género de los siguientes: ${generos}`);
+    return genero
+  }
+  
+  getGenerosPeliculas((generos) => { 
+    let genero = elegirGenero(generos); // despues de elegir el genero, dame las peliculas
+    getPeliculasDeGenero(genero);
+  });
+  
+// ---------------------
+// ----- Promesas -----
+// ---------------------
