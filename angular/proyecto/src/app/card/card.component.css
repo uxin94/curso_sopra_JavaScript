@@ -1,0 +1,28 @@
+.card{
+    width: 210px;
+    height: 460px;
+    border: 2px solid rgb(187, 61, 61, 0.8);
+    box-shadow: 8px 5px 10px;
+    margin: 20px;
+}
+
+div.card h1, div.card h2, div.card p, div.card button{
+    padding: 2px 8px;
+}
+
+button{
+    border: 1px solid darkgray;
+    background-color: aliceblue;
+    width: 85px;
+    height: 20px;
+    font-size: 12px;
+}
+
+button:hover{
+   background-color: rgb(228, 233, 238);
+}
+
+.con-flex{
+    display:flex;
+    justify-content: space-evenly;
+}

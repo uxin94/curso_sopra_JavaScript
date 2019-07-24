@@ -1,0 +1,4 @@
+<h1>CV interactivo</h1>
+<app-form-cv [miNombre]='nombre' [misApellidos]='apellidos' [miEmail]='email' [miFoto] = 'foto' [misSkills]='skills' (miNombreCambiado)="cambiarNombre($event)" (misApellidosCambiados)="cambiarApellidos($event)" (miEmailCambiado)="cambiarEmail($event)" (miFotoCambiada)="cambiarFoto($event)" (misSkillsCambiadas)="cambiarSkills($event)"></app-form-cv>
+
+<app-preview-cv [miNombre]='nombre' [misApellidos]='apellidos' [miEmail]='email' [miFoto] = 'foto' [misSkills]='skills'></app-preview-cv>
