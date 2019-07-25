@@ -37,11 +37,12 @@ export class FormCvComponent implements OnInit {
   }
 
   cambiarFoto(event){
-    this.miFotoCambiada.emit(event.target.value)
+    this.miFotoCambiada.emit("assets/"+event.target.files[0].name)
+    console.dir(event.target)
   }
 
-  cambiarSkills(event){
-    this.misSkillsCambiadas.emit(event.target.value)
+  cambiarSkills(skill){
+    this.misSkillsCambiadas.emit(skill)
   }
 
 }

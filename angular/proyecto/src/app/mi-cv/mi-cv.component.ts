@@ -10,7 +10,7 @@ export class MiCvComponent implements OnInit {
   nombre = ''
   apellidos = ''
   email = ''
-  foto = ''
+  foto = ' '
   skills: Array<string>=[]
 
   constructor() { }
@@ -37,7 +37,4 @@ export class MiCvComponent implements OnInit {
   cambiarSkills(skill){
     this.skills.push(skill)
   }
-
-
-
 }

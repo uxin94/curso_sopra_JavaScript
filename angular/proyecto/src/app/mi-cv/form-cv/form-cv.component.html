@@ -1,6 +1,6 @@
 Nombre: <input (input)="cambiarNombre($event)" type="text" id="nombre"><br>
 Apellidos: <input (input)="cambiarApellidos($event)" type="text" id="apellidos"><br>
 Email: <input (input)="cambiarEmail($event)" type="email" id="email"><br>
-Foto: <input (input)="cambiarFoto($event)" type="file" id="foto"><br>
+Foto: <input (change)="cambiarFoto($event)" type="file" id="foto"><br>
 Skill: <input type="text" #skill>
 <button type="button" (click)="cambiarSkills(skill.value)">Añadir skill</button>
