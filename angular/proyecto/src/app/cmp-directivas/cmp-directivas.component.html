@@ -17,14 +17,22 @@
 
 
 <h3>Estructurales</h3>
-    
+ 
+<!--  if -->
 <button type="button" (click)="toggleMostrarItem()">Cambiar párrafo</button>
 <p *ngIf="mostrarItem; else o" appMarcar="red" appBlink="blue">Párrafo marcado!!</p>
 <ng-template #o>
     <p appMarcar>Párrafo marcado (ELSE)</p>   
 </ng-template>
 
-
+<!-- for -->
 <ul>
     <li *ngFor='let item of items'>{{item}}</li>
 </ul>
+
+<!-- switch-case -->
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'black'">Es de color black</p>
+    <p *ngSwitchCase="'white'">Es de color white</p>
+    <p *ngSwitchDefault>Es de color color</p>
+</div>

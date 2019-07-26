@@ -1,0 +1,9 @@
+<div class="contenedor">
+    <img  [src]='meme.imagenUrl'><br> <!-- src='https://i.imgflip.com/1otk96.jpg'>-->
+    <div class='textoArriba' [ngStyle]="{color:meme.color}">{{meme.textoArriba}}</div>
+    <div class='textoAbajo' [ngStyle]="{color:meme.color}">{{meme.textoAbajo}}</div>
+</div>
+<div *ngIf="!creando">
+    <button type="button" (click)="eliminar()">Eliminar</button>
+    <button type="button" (click)="toggleFav()">Favorito</button>
+</div>

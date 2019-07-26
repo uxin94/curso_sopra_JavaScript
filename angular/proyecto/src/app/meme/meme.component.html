@@ -1,0 +1,5 @@
+
+<app-memes [textoArriba]='textoArriba' [textoAbajo]='textoAbajo' [color]='color'></app-memes>
+<hr>
+<app-memeform [textoArriba]='textoArriba' [textoAbajo]='textoAbajo' [color]='color' (textoAbajoC)='cambiarTextoAbajo($event)' (textoArribaC)='cambiarTextoArriba($event)' (colorC)='cambiarColor($event)'></app-memeform>
+

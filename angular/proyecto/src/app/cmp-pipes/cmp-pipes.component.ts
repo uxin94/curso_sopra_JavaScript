@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { resolve } from 'path';
 
 @Component({
   selector: 'app-cmp-pipes',

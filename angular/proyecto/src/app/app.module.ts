@@ -23,6 +23,13 @@ import { FiltroPipe } from './cmp-pipes/filtro.pipe';
 import { CmpDirectivasComponent } from './cmp-directivas/cmp-directivas.component';
 import { MarcarDirective } from './cmp-directivas/marcar.directive';
 import { BlinkDirective } from './cmp-directivas/blink.directive';
+import { CmpServiciosComponent } from './cmp-servicios/cmp-servicios.component';
+import { CmpAComponent } from './cmp-servicios/cmp-a/cmp-a.component';
+import { CmpBComponent } from './cmp-servicios/cmp-b/cmp-b.component';
+import { MemeComponent } from './meme/meme.component';
+import { MemesComponent } from './meme/memes/memes.component';
+import { MemeformComponent } from './meme/memeform/memeform.component';
+import { ListaMemesComponent } from './meme/lista-memes/lista-memes.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,14 @@ import { BlinkDirective } from './cmp-directivas/blink.directive';
     FiltroPipe,
     CmpDirectivasComponent,
     MarcarDirective,
-    BlinkDirective
+    BlinkDirective,
+    CmpServiciosComponent,
+    CmpAComponent,
+    CmpBComponent,
+    MemeComponent,
+    MemesComponent,
+    MemeformComponent,
+    ListaMemesComponent
   ],
   imports: [
     BrowserModule,

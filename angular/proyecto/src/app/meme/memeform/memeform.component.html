@@ -1,0 +1,22 @@
+<div><input type="text" placeholder="Texto de arriba" (input)="mostrarTextoArriba($event)" ><br>
+<input type="text" placeholder="Texto de abajo" (input)="mostrarTextoAbajo($event)"><br>
+<input type="color" id="colorTexto" (change)="cambiarColorTexto()"><br>
+<button type="button" (click)="crearMeme()">Crear</button>
+</div>
+<hr>
+<div>
+<input type="text" placeholder="Borra un meme">
+<button type="button">Borrar</button>
+</div>
+<hr>
+<div>
+<input type="text" placeholder="Busca un meme">
+<button type="button">Buscar</button>
+    <!-- <ul>
+        <li *ngFor="let meme of memes">{{meme}}</li>
+    </ul> -->
+
+</div>
+<hr>
+
+
