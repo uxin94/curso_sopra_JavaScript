@@ -6,7 +6,7 @@ import { Meme } from './meme';
 })
 export class ServicioMemeService {
 
-  memes: Array<Meme>=[new Meme('0', 'Texto1', 'Texto 2', 'https://i.imgflip.com/1otk96.jpg']
+  memes: Array<Meme>=[new Meme('0', 'Texto1', 'Texto 2', 'https://i.imgflip.com/1otk96.jpg')]
 
   constructor() { }
 
@@ -22,6 +22,6 @@ export class ServicioMemeService {
 
   deleteMeme(idMeme:string):void{
     const pos = this.memes.findIndex(meme=>{meme.id===idMeme})
-    this.lmemes.splice(pos,1)
+    this.memes.splice(pos,1)
   }
 }
