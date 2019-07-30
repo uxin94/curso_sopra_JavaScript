@@ -9,11 +9,27 @@ import { MemesService } from '../memes.service';
 })
 export class ListaMemesComponent implements OnInit {
   memes: Array<Meme> = [];
-
+  mostrarFavs:boolean = false;
   constructor(private memesServ: MemesService) { }
 
   ngOnInit() {
-    this.memes = this.memesServ.getMemes();
+    // this.memes = this.memesServ.getMemes();
+    this.memesServ.pintamos.subscribe(() => {
+      this.pintaOtraVez();
+    })
+    this.pintaOtraVez();
   }
 
+  pintaOtraVez() {
+ 
+      this.memesServ.getMemes().subscribe((memes) => {
+            this.memes = this.mostrarFavs ? memes.filter(meme=>meme.isFav): memes;
+          })
+  }
+
+
+  muestraMemesFavs(){
+    this.mostrarFavs=!this.mostrarFavs;
+    this.pintaOtraVez();
+  }
 }

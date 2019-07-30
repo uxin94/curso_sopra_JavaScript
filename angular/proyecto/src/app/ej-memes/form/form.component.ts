@@ -1,32 +1,41 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
 import { Meme } from '../meme';
 import { MemesService } from '../memes.service';
-import { FormBuilder, Validators, FormGroup} from '@angular/forms'
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
-
-  @Input() meme: Meme;
+export class FormComponent implements OnInit, DoCheck {
   form: FormGroup;
-  constructor(private memesServ: MemesService, private formBuilder: FormBuilder) { }
+  @Input() meme: Meme;
+
+  constructor(private memesServ: MemesService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({ //new FormGroup
-      textoArriba:this.formBuilder.control(this.meme.textoArriba, Validators.required),
-      textoAbajo: this.formBuilder.control(this.meme.textoAbajo, Validators.required),
+    this.form = this.formBuilder.group({
+      textoArriba: this.formBuilder.control(this.meme.textoArriba, Validators.required),
+      textoAbajo: this.formBuilder.control(this.meme.textoAbajo),
       color: this.formBuilder.control(this.meme.color),
-      imagenUrl: this.form.controls(this.meme.imagenUrl, Validators.required)
-
+      imagenUrl: this.formBuilder.control(this.meme.imagenUrl, Validators.required),
     });
   }
 
+  ngDoCheck() {
+    this.meme.textoArriba = this.form.value.textoArriba;
+    this.meme.textoAbajo = this.form.value.textoAbajo;
+    this.meme.color = this.form.value.color;
+    this.meme.imagenUrl = this.form.value.imagenUrl;
+  }
 
   guardar() {
-    this.memesServ.addMeme(this.form.value.textoArriba, this.form.value.textoAbajo, this.form.value.color, this.form.value.imagenUrl);
+    this.memesServ.addMeme(this.form.value.textoArriba, this.form.value.textoAbajo, this.form.value.color, this.form.value.imagenUrl)
+      .subscribe(() => {
+        this.router.navigate(['/memes']);
+      });
   }
 
 }

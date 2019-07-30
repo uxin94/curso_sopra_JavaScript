@@ -4,11 +4,13 @@ import { NuevoUsuarioComponent } from './nuevo-usuario/nuevo-usuario.component';
 import { InfoUsuarioComponent } from './usuarios/info-usuario/info-usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { USUARIOS_ROUTES } from './usuarios/usuarios.routes';
+import { ErrorComponent } from './error/error.component';
 
 const APP_ROUTES: Routes = [
     {path: '', component: InicioComponent},
     {path: 'usuarios', component: UsuariosComponent, children: USUARIOS_ROUTES},
     {path: 'nuevo-usuario', component: NuevoUsuarioComponent},
+    {path: '**', component: ErrorComponent}
     //{path: ':id', component: InfoUsuarioComponent}
 ];
 
